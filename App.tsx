@@ -1,21 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
+import { Provider } from 'react-redux';
+import { store } from './client/store/store';
+import { Main } from './client/components/index';
 
-export default function App() {
+const App: React.FC = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <SafeAreaView style={styles.SafeArea}>
+        <Main />
+      </SafeAreaView>
+    </Provider>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  container: {
+  SafeArea: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: StatusBar.currentHeight,
   },
 });
+
+export default App;
