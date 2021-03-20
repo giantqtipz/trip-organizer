@@ -19,7 +19,7 @@ jobs:
       script:
         - expo diagnostics
         - npm ci
-        - npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD
+        - npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD --non-interactive
         - npx expo publish --non-interactive
 notifications:
   email:
