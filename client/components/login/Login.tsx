@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
-import {
-  Keyboard,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import login from './LoginStyles';
 
-const Main: React.FC = () => {
+const Main: React.FC = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const logIn = () => {
     console.log(email, password);
+  };
+  const register = () => {
+    navigation.navigate('Registration');
   };
   return (
     <View style={login.container}>
@@ -37,6 +34,11 @@ const Main: React.FC = () => {
       <View>
         <TouchableOpacity style={login.button} onPress={logIn}>
           <Text style={login.buttonText}>Log In</Text>
+        </TouchableOpacity>
+      </View>
+      <View>
+        <TouchableOpacity onPress={register}>
+          <Text style={login.registration}>Sign Up</Text>
         </TouchableOpacity>
       </View>
     </View>
