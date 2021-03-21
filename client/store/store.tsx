@@ -1,8 +1,11 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
+import { userReducer } from './user/reducer';
 
-const reducers = combineReducers({});
+const reducers = combineReducers({
+  userReducer,
+});
 
 const middleware = [
   ReduxThunk,

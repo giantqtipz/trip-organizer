@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import registration from './RegistrationStyles';
+import { createUser } from '../../store/user/actions';
 
 const Registration: React.FC = () => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const register = () => {
-    console.log(email, password);
+    dispatch(
+      createUser({
+        newUser: {
+          email,
+          password,
+        },
+      })
+    );
   };
   return (
     <View style={registration.container}>
@@ -27,10 +37,10 @@ const Registration: React.FC = () => {
         />
         <TextInput
           style={[registration.input, registration.margin]}
-          onChangeText={(e) => setPassword(e)}
+          onChangeText={(e) => setPasswordConfirmation(e)}
           placeholder="Confirm Password"
           secureTextEntry
-          value={password}
+          value={passwordConfirmation}
         />
       </View>
       <View>
