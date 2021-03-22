@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const { UUID, UUIDV4, INTEGER, TEXT } = Sequelize;
+const { UUID, UUIDV4, STRING } = Sequelize;
 const { db } = require('../db');
 
 const User = db.define('User', {
@@ -10,14 +10,15 @@ const User = db.define('User', {
     primaryKey: true,
   },
   email: {
-    type: TEXT,
+    type: STRING,
     allowNull: false,
+    unique: true,
     validate: {
       notEmpty: true,
     },
   },
   password: {
-    type: INTEGER,
+    type: STRING,
     allowNull: false,
     validate: {
       notEmpty: true,
