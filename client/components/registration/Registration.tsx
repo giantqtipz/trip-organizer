@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
-import registration from './RegistrationStyles';
 import { createUser } from '../../store/user/actions';
+import registration from './RegistrationStyles';
+import { passwordValidator } from '../utils';
 
 const Registration: React.FC = () => {
   const dispatch = useDispatch();
@@ -10,17 +11,25 @@ const Registration: React.FC = () => {
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const register = () => {
-    dispatch(
-      createUser({
-        newUser: {
-          email,
-          password,
-        },
-      })
-    );
+    if (passwordValidator(password, passwordConfirmation)) {
+      dispatch(
+        createUser({
+          newUser: {
+            email,
+            password,
+          },
+        })
+      );
+    }
   };
   return (
     <View style={registration.container}>
+      <View>
+        <Text>Password must:</Text>
+        <Text>be at least 6 characters long</Text>
+        <Text>contain an uppercase letter</Text>
+        <Text>contain a special character</Text>
+      </View>
       <View style={registration.margin}>
         <TextInput
           style={[registration.input, registration.margin]}
