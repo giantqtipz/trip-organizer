@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
-import {
-  NavigationScreenProp,
-  NavigationState,
-  NavigationParams,
-} from 'react-navigation';
 import login from './LoginStyles';
 
 interface Props {
-  navigation: NavigationScreenProp<NavigationState, NavigationParams>;
+  navigation?: any;
 }
 
 const Main: React.FC<Props> = ({ navigation }) => {
