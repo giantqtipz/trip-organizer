@@ -9,6 +9,5 @@
     "skipLibCheck": true,
     "strict": true,
     "types": ["jest", "node"],
-    "typeRoots": ["./client/store"]
   },
 }
