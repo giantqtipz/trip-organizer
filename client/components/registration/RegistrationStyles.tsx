@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-const login = StyleSheet.create({
+const registration = StyleSheet.create({
   button: {
     borderColor: 'lightgray',
     borderRadius: 10,
@@ -32,4 +32,4 @@ const login = StyleSheet.create({
   },
 });
 
-export default login;
+export default registration;
