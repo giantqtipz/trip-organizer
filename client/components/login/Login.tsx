@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import {
+  NavigationScreenProp,
+  NavigationState,
+  NavigationParams,
+} from 'react-navigation';
 import login from './LoginStyles';
 
-const Main: React.FC = ({ navigation }) => {
+interface Props {
+  navigation: NavigationScreenProp<NavigationState, NavigationParams>;
+}
+
+const Main: React.FC<Props> = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const logIn = () => {
