@@ -8,14 +8,6 @@ export const passwordValidator = (
   );
   if (password === confirm && regex.test(password) && regex.test(confirm)) {
     validation = true;
-}
-console.log(
-    password === confirm,
-    password,
-    confirm,
-    regex.test(password),
-    regex.test(confirm),
-    validation
-    );
+  }
   return validation;
 };
